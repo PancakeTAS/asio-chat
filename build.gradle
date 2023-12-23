@@ -1,0 +1,32 @@
+plugins {
+    // application plugin
+    id 'application'
+    // shadow plugin
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+// application
+application {
+    mainClass = "gay.pancake.asiochat.AsioChat"
+}
+
+// set basic properties
+base {
+    group = 'gay.pancake'
+    version = '1.0.0-SNAPSHOT'
+    archivesName = 'asiochat'
+}
+
+// dependency repositories
+repositories {
+    // maven central
+    mavenCentral()
+    // mgnetwork maven
+    maven { url 'https://maven.mgnet.work/main' }
+}
+
+// dependencies
+dependencies {
+    // asio dependency
+    implementation group: 'com.synthbot', name: 'JAsioHost', version: '1.0.0'
+}
