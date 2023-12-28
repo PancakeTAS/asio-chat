@@ -26,9 +26,8 @@ public class AsioChat {
                 return;
             }
 
-            var client = new Client("Focusrite USB ASIO");
-            client.connect(args[1], Integer.parseInt(args[2]));
-            client.start(0, 0, 1);
+            var client = new Client();
+            client.start("Focusrite USB ASIO", args[1], Integer.parseInt(args[2]), 0, 0, 1);
 
             System.out.println("Press enter to exit...");
             while (!client.getExitCallback().isCompletedExceptionally()) {
@@ -44,9 +43,8 @@ public class AsioChat {
                 return;
             }
 
-            var server = new Server("Focusrite USB ASIO");
-            server.bind(Integer.parseInt(args[1]));
-            server.start(0, 0, 1);
+            var server = new Server();
+            server.start("Focusrite USB ASIO", Integer.parseInt(args[1]), 0, 0, 1);
 
             System.out.println("Press enter to exit...");
             while (!server.getExitCallback().isCompletedExceptionally()) {
